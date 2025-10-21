@@ -14,6 +14,19 @@ const config: Config = {
       },
     },
   },
+
+   images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.dummyjson.com",
+      },
+    ],
+  },
+
+  
   plugins: [],
 };
 export default config;
+
+
