@@ -85,7 +85,7 @@ const Products1: React.FC = () => {
                     className={`font-medium px-3 py-1.5 rounded-full text-sm transition-all ${
                       isWishlisted
                         ? "bg-red-600 hover:bg-red-700 text-white"
-                        : "bg-red-400 hover:bg-blue-700 text-white"
+                        : "bg-pink-400 hover:bg-pink-700 text-white"
                     }`}
                   >
                     {isWishlisted ? "Remove from Wishlist" : "Add to Wishlist"}
