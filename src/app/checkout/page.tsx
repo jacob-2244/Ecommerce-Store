@@ -113,7 +113,7 @@ const Checkout = () => {
         Enter Your Details:
       </h1>
       <form
-        className="w-full flex flex-col gap-5 max-w-screen-2xl px-4"
+        className="w-full flex flex-col gap-5 max-w-screen-2xl px-4 text-black"
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="flex flex-col lg:flex-row gap-4 w-full">
