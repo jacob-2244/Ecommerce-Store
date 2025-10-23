@@ -120,6 +120,7 @@ const Checkout = () => {
           <div className="w-full flex flex-col gap-2">
             <label className="font-bold">First Name*</label>
             <input
+            
               {...register("fName", { required: "First name is required" })}
               placeholder="Enter Your First Name"
               className={`border  px-2 py-4 rounded ${
@@ -208,9 +209,10 @@ const Checkout = () => {
           <div className="flex-1 flex flex-col gap-2">
             <label className="font-bold">Street*</label>
             <input
+          
               {...register("street", { required: "Street is required" })}
               placeholder="Enter Your Street"
-              className={`border px-2 py-4 rounded ${
+              className={`border px-2 py-4 rounded text-black ${
                 errors.street ? "border-red-500" : ""
               }`}
             />
