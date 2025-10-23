@@ -4,21 +4,32 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/redux/store";
-import { fetchProducts, addToCart,loadCart } from "../redux/productSlice";
+import { fetchProducts, addToCart, loadCart, addToWishlist, removeFromWishlist,Product } from "../redux/productSlice"; 
 import Link from "next/link";
+
+
 
 const Products1: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { items, cart, status, error } = useSelector(
+  const { items, cart, wishlist, status, error } = useSelector(
     (state: RootState) => state.products
   );
 
 
-
   useEffect(() => {
-  dispatch(loadCart()); 
-  dispatch(fetchProducts());
-}, [dispatch]);
+    dispatch(loadCart());
+    dispatch(fetchProducts());
+  }, [dispatch]);
+
+  const handleToggleWishlist = (product: Product) => {
+    const isWishlisted = wishlist.some((item) => item.id === product.id);
+
+    if (isWishlisted) {
+      dispatch(removeFromWishlist(product.id)); 
+    } else {
+      dispatch(addToWishlist(product)); 
+    }
+};
 
   return (
     <div className="p-6 bg-gray-50 min-h-screen">
@@ -37,6 +48,7 @@ const Products1: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {items.map((product) => {
             const inCart = cart.some((item) => item.id === product.id);
+            const isWishlisted = wishlist.some((item) => item.id === product.id);
 
             return (
               <div
@@ -45,7 +57,7 @@ const Products1: React.FC = () => {
               >
                 <div className="relative w-full h-52 mb-3 bg-gray-100 rounded-xl overflow-hidden flex items-center justify-center">
                   <Image
-                  src={product.thumbnail}
+                    src={product.thumbnail}
                     alt={product.title}
                     fill
                     className="object-contain"
@@ -66,6 +78,18 @@ const Products1: React.FC = () => {
                   <p className="text-lg font-bold text-green-600">
                     ${product.price.toFixed(2)}
                   </p>
+                  
+           
+                  <button
+                    onClick={() => handleToggleWishlist(product)}
+                    className={`font-medium px-3 py-1.5 rounded-full text-sm transition-all ${
+                      isWishlisted
+                        ? "bg-red-600 hover:bg-red-700 text-white"
+                        : "bg-red-400 hover:bg-blue-700 text-white"
+                    }`}
+                  >
+                    {isWishlisted ? "Remove from Wishlist" : "Add to Wishlist"}
+                  </button>
 
                   {inCart ? (
                     <Link

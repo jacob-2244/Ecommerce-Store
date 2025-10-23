@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import AddToCart from "./AddToCart";
+import WishList from "./WishList";
 
 const Header: React.FC = () => {
   return (
@@ -15,7 +16,7 @@ const Header: React.FC = () => {
 
        
         <nav className="hidden md:flex gap-6 text-xl">
-          <Link href="#" className="text-gray-700 hover:text-blue-600 transition">
+          <Link href="/" className="text-gray-700 hover:text-blue-600 transition">
             Home
           </Link>
           <Link href="#" className="text-gray-700 hover:text-blue-600 transition">
@@ -28,6 +29,8 @@ const Header: React.FC = () => {
             Contact
           </Link>
         </nav>
+
+        <WishList/>
 
         <AddToCart />
       </div>
