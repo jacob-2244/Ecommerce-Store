@@ -20,7 +20,7 @@ const Header: React.FC = () => {
             Home
           </Link>
           <Link href="#" className="text-gray-700 hover:text-blue-600 transition">
-            Cars
+           Shop
           </Link>
           <Link href="#" className="text-gray-700 hover:text-blue-600 transition">
             About

@@ -21,10 +21,10 @@ const WishList: React.FC = () => {
   const wishlistItems = useSelector((state: RootState) => state.products.wishlist);
   const dispatch = useDispatch();
 
-  // Correct the type of the 'item' parameter using the Product interface
+  
   const handleMoveToCart = (item: Product) => {
     dispatch(addToCart(item));
-    dispatch(removeFromWishlist(item.id)); // Assuming you also want to remove it from the wishlist
+    // dispatch(removeFromWishlist(item.id)); 
   };
 
   if (wishlistItems.length === 0) {
