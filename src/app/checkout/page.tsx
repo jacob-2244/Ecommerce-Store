@@ -72,7 +72,7 @@ const Checkout = () => {
           </p>
           <p className="font-semibold">Address:</p>
           <p className="ml-4">
-            {submittedData.addressNumber}, {submittedData.street},{" "}
+            {submittedData.addressNumber}, {"Street:"}{submittedData.street},{" "}
             {submittedData.city}, {submittedData.zip},{"Pakistan"}
           </p>
 
